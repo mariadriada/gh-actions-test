@@ -2,7 +2,7 @@ name: Check node project
 on: [pull_request]
 jobs:
   check_uts:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -12,5 +12,5 @@ jobs:
           node-version: 18
       - name: install dependencies
         run: npm install
-      - name: run tests
+      - name: run test
         run: npm run test
