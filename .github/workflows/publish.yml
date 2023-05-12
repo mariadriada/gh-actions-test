@@ -1,0 +1,18 @@
+name: Publish statics
+on:
+  merge:
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository and checkout branch
+        uses: actions/checkout@v3
+      - name: Deploy to https://great-playground.surge.sh/
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: "https://great-playground.surge.sh/"
+          project: "statics"
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
